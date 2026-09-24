@@ -1,5 +1,3 @@
-// View switching + active-track helpers.
-
 import { state } from './state.js';
 
 export function currentTrack() { return state.activeTrack; }
@@ -7,11 +5,25 @@ export function currentTrack() { return state.activeTrack; }
 export function setView(name) {
   state.view = name;
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  const el = document.getElementById(name === 'home' ? 'viewHome' : 'viewLesson');
+  const map = {
+    landing:    'viewLanding',
+    auth:       'viewAuth',
+    dashboard:  'viewDashboard',
+    curriculum: 'viewHome',
+    lesson:     'viewLesson'
+  };
+  const id = map[name] || 'viewHome';
+  const el = document.getElementById(id);
   if (el) el.classList.add('active');
-  document.getElementById('homeBtn').style.display = name === 'lesson' ? 'inline-flex' : 'none';
+
+  // Home button visibility
+  const homeBtn = document.getElementById('homeBtn');
+  if (homeBtn) {
+    homeBtn.style.display = ['curriculum','lesson'].includes(name) ? 'inline-flex' : 'none';
+  }
 }
 
 export function setCrumb(html) {
-  document.getElementById('crumb').innerHTML = html;
+  const c = document.getElementById('crumb');
+  if (c) c.innerHTML = html;
 }

@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/word.css">
 <link rel="stylesheet" href="css/excel.css">
 <link rel="stylesheet" href="css/ppt.css">
+<link rel="stylesheet" href="css/home.css">
 </head>
 <body>
 
@@ -20,22 +21,29 @@
       <span id="logoText">Word</span>
       <span class="logo-suffix"> · by doing</span>
     </div>
-    <div class="crumb" id="crumb">Curriculum</div>
+    <div class="crumb" id="crumb"></div>
     <div class="progress-track" role="progressbar">
       <div class="progress-fill" id="progressFill"></div>
     </div>
     <div class="xp-chip" id="xpChip">0 XP</div>
-    <button class="home-btn" id="homeBtn" style="display:none;">⌂ Home</button>
+    <button class="home-btn" id="homeBtn" style="display:none;">⌂ Dashboard</button>
   </div>
 
-  <div class="view active" id="viewHome">
+  <!-- Landing -->
+  <div class="view" id="viewLanding"></div>
+
+  <!-- Auth -->
+  <div class="view" id="viewAuth"></div>
+
+  <!-- Dashboard -->
+  <div class="view" id="viewDashboard"></div>
+
+  <!-- Curriculum -->
+  <div class="view" id="viewHome">
     <div class="home-wrap">
       <div class="home-hero">
         <h1 id="homeHeroTitle">Learn Microsoft Word <em>by writing real documents.</em></h1>
-        <p id="homeHeroLede">
-          Ten modules. From your first click on the Ribbon to publication-ready reports, CVs, and letters.
-          Every lesson ends with something you'd actually send to a real person.
-        </p>
+        <p id="homeHeroLede"></p>
         <div class="stat-row" id="statRow"></div>
         <div class="track-tabs" id="trackTabs">
           <button class="track-tab active" data-track="word">📄 Word</button>
@@ -47,6 +55,7 @@
     </div>
   </div>
 
+  <!-- Lesson -->
   <div class="view" id="viewLesson">
     <div class="lesson-wrap">
       <div class="lesson-head">
@@ -65,7 +74,6 @@
 
 <div class="toast" id="toast"></div>
 
-<!-- PPT slideshow overlay -->
 <div class="slideshow" id="slideshow">
   <button class="slideshow-close" id="slideshowClose">Esc to exit</button>
   <div class="slideshow-slide" id="slideshowSlide"></div>
