@@ -1,0 +1,36 @@
+.word-window { --titlebar: #2b579a; }
+
+.word-canvas {
+  background: #fafafa;
+  padding: 22px;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+.word-page {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  min-height: 180px;
+  padding: 38px 46px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 0 0 1px #ececec;
+  font-family: 'Calibri', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #222;
+  outline: none;
+  transition: all 0.15s;
+}
+.word-page:focus { border-color: #b8d4ea; }
+.word-page p { margin-bottom: 10px; }
+.word-page .placeholder { color: #aaa; font-style: italic; }
+
+.sel-target {
+  background: #cfe8ff;
+  border-radius: 2px;
+  padding: 0 1px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sel-target:hover { background: #b3d9ff; }
+.sel-target.selected { background: #cfe8ff; box-shadow: 0 0 0 1px #4a90e2; }

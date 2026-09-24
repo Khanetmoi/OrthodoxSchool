@@ -1,0 +1,199 @@
+.excel-window { --titlebar: #217346; }
+
+.excel-formulabar {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #d4d4d4;
+  background: #fff;
+  font-size: 0.82rem;
+  height: 30px;
+}
+.name-box {
+  width: 90px;
+  border-right: 1px solid #d4d4d4;
+  display: flex; align-items: center;
+  padding: 0 10px;
+  font-weight: 600; color: #333;
+  background: #fafafa;
+  font-family: 'Consolas', 'Monaco', monospace;
+}
+.fx-label {
+  width: 34px;
+  border-right: 1px solid #d4d4d4;
+  display: flex; align-items: center; justify-content: center;
+  color: #666; font-style: italic;
+  font-family: Georgia, serif;
+  background: #fafafa;
+}
+.formula-input {
+  flex: 1;
+  border: none; outline: none;
+  padding: 0 10px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.82rem;
+  color: #333;
+  background: #fff;
+}
+.formula-input:focus { background: #f5faff; }
+
+.excel-canvas {
+  background: #fff;
+  padding: 0;
+  overflow: auto;
+  max-height: 380px;
+  position: relative;
+}
+table.excel-grid {
+  border-collapse: collapse;
+  font-family: 'Calibri', 'Segoe UI', sans-serif;
+  font-size: 13px;
+  width: 100%;
+  table-layout: fixed;
+}
+table.excel-grid th,
+table.excel-grid td {
+  border: 1px solid #d4d4d4;
+  padding: 0;
+  height: 24px;
+  vertical-align: middle;
+  position: relative;
+}
+table.excel-grid th.corner {
+  background: #f3f3f3;
+  width: 40px; min-width: 40px;
+  height: 22px;
+  position: sticky; top: 0; left: 0;
+  z-index: 3;
+}
+table.excel-grid th.col-head {
+  background: #f3f3f3;
+  color: #555;
+  font-weight: 600; font-size: 0.72rem;
+  text-align: center;
+  height: 22px;
+  position: sticky; top: 0;
+  z-index: 2;
+  user-select: none;
+}
+table.excel-grid th.col-head.active {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+table.excel-grid td.row-head {
+  background: #f3f3f3;
+  color: #555;
+  font-weight: 600; font-size: 0.72rem;
+  text-align: center;
+  width: 40px; min-width: 40px;
+  user-select: none;
+}
+table.excel-grid td.row-head.active {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+table.excel-grid td.cell {
+  cursor: cell;
+  padding: 0 6px;
+  color: #222;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #fff;
+  user-select: none;
+}
+table.excel-grid td.cell.selected {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  background: #f5faff;
+  z-index: 1;
+}
+table.excel-grid td.cell.in-range {
+  background: var(--accent-soft);
+}
+table.excel-grid td.cell.numeric { text-align: right; }
+table.excel-grid td.cell.error { color: #c0392b; font-weight: 600; }
+table.excel-grid td.cell.bold { font-weight: 700; }
+table.excel-grid td.cell.hint-pulse { animation: hintPulse 1.4s ease-in-out infinite; }
+
+.excel-sheettabs {
+  background: #f3f3f3;
+  border-top: 1px solid #d5d5d5;
+  display: flex; align-items: center;
+  padding: 0 8px;
+  font-size: 0.78rem;
+  gap: 2px;
+}
+.sheet-tab {
+  padding: 7px 14px;
+  color: #444;
+  cursor: pointer;
+  background: #f3f3f3;
+  border-top: 2px solid transparent;
+  border-right: 1px solid #e0e0e0;
+  user-select: none;
+  font-weight: 500;
+}
+.sheet-tab.active {
+  background: #fff;
+  color: var(--accent);
+  font-weight: 700;
+  border-top-color: var(--accent);
+}
+
+/* In-cell editing */
+table.excel-grid td.cell.editing {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  background: #f5faff;
+  padding: 0;
+}
+table.excel-grid td.cell.editing input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0 6px;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* Fill handle (bottom-right corner of selected cell) */
+table.excel-grid td.cell.selected {
+  position: relative;
+}
+table.excel-grid td.cell.selected::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border: 1px solid #fff;
+  border-radius: 1px;
+  cursor: crosshair;
+  z-index: 5;
+  pointer-events: none;   /* keep it decorative — the handle div gets the click */
+}
+table.excel-grid td.cell.selected .fill-handle {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  border: 1px solid #fff;
+  border-radius: 1px;
+  cursor: crosshair;
+  z-index: 6;
+}
+table.excel-grid td.cell.fill-source {
+  outline: 2px dashed var(--accent);
+  outline-offset: -2px;
+}
+table.excel-grid td.cell.fill-target {
+  background: var(--accent-pale);
+}

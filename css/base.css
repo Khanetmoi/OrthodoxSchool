@@ -1,0 +1,74 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Brand */
+  --green: #1e6b3e;
+  --green-light: #4fc98a;
+  --green-pale: #e8f6ef;
+
+  /* Track accents — swapped at runtime by data-track on <html> */
+  --accent: #1e6b3e;
+  --accent-dark: #15522e;
+  --accent-pale: #e8f6ef;
+  --accent-soft: #d4ecd9;
+
+  /* Ink & surfaces */
+  --ink: #0f2b3d;
+  --ink-soft: #4a6b80;
+  --ink-faint: #7089a0;
+  --line: #e6edf4;
+  --bg: #eef2f7;
+  --surface: #ffffff;
+  --surface-alt: #f8fafc;
+
+  /* Status */
+  --gold: #f0c419;
+  --red: #c0392b;
+
+  /* Radii */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 40px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(15, 40, 70, 0.06);
+  --shadow-md: 0 8px 30px -12px rgba(20, 50, 80, 0.18);
+  --shadow-lg: 0 20px 60px -20px rgba(15, 40, 70, 0.22);
+}
+
+html[data-track="excel"] {
+  --accent: #217346;
+  --accent-dark: #185c37;
+  --accent-pale: #d4ecd9;
+  --accent-soft: #c8e6d4;
+}
+
+html[data-track="ppt"] {
+  --accent: #b7472a;
+  --accent-dark: #8a3520;
+  --accent-pale: #f7d9d0;
+  --accent-soft: #f0d0c4;
+}
+
+html, body { height: 100%; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

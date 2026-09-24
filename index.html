@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn by Doing — Word · Excel · PowerPoint</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/sandbox.css">
+<link rel="stylesheet" href="css/word.css">
+<link rel="stylesheet" href="css/excel.css">
+<link rel="stylesheet" href="css/ppt.css">
+</head>
+<body>
+
+<div class="app" id="app">
+  <div class="topbar">
+    <div class="logo" id="logoHome" role="button" tabindex="0">
+      <span class="logo-mark" id="logoMark">W</span>
+      <span id="logoText">Word</span>
+      <span class="logo-suffix"> · by doing</span>
+    </div>
+    <div class="crumb" id="crumb">Curriculum</div>
+    <div class="progress-track" role="progressbar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="xp-chip" id="xpChip">0 XP</div>
+    <button class="home-btn" id="homeBtn" style="display:none;">⌂ Home</button>
+  </div>
+
+  <div class="view active" id="viewHome">
+    <div class="home-wrap">
+      <div class="home-hero">
+        <h1 id="homeHeroTitle">Learn Microsoft Word <em>by writing real documents.</em></h1>
+        <p id="homeHeroLede">
+          Ten modules. From your first click on the Ribbon to publication-ready reports, CVs, and letters.
+          Every lesson ends with something you'd actually send to a real person.
+        </p>
+        <div class="stat-row" id="statRow"></div>
+        <div class="track-tabs" id="trackTabs">
+          <button class="track-tab active" data-track="word">📄 Word</button>
+          <button class="track-tab" data-track="excel">📊 Excel</button>
+          <button class="track-tab" data-track="ppt">📽 PowerPoint</button>
+        </div>
+      </div>
+      <div id="mapContainer"></div>
+    </div>
+  </div>
+
+  <div class="view" id="viewLesson">
+    <div class="lesson-wrap">
+      <div class="lesson-head">
+        <button class="back-btn" id="backBtn" aria-label="Back">←</button>
+        <div class="lesson-title-block">
+          <div class="kicker" id="lessonKicker">Module</div>
+          <h1 id="lessonTitle">Lesson title</h1>
+        </div>
+        <div class="lesson-step" id="lessonStep">Step 1 of 4</div>
+        <div class="step-dots" id="stepDots"></div>
+      </div>
+      <div id="lessonBody"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- PPT slideshow overlay -->
+<div class="slideshow" id="slideshow">
+  <button class="slideshow-close" id="slideshowClose">Esc to exit</button>
+  <div class="slideshow-slide" id="slideshowSlide"></div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
